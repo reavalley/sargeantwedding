@@ -10,27 +10,32 @@ import {AboutComponent} from "./about.component";
 import {AppComponent} from "./app.component";
 import {AppRouting} from "./app.routing";
 import {HomeComponent} from "./home.component";
-import {ItemDetailEditComponent} from "./item-detail-edit.component";
-import {ItemDetailViewComponent} from "./item-detail-view.component";
-import {ItemListComponent} from "./item-list.component";
-import {ItemService} from "./item.service";
 import {AuthService} from "./auth.service";
 import {AuthHttp} from "./auth.http";
 import {LoginComponent} from "./login.component";
 import {PageNotFoundComponent} from "./page-not-found.component";
 import {UserEditComponent} from "./user-edit.component";
+import {ItineryComponent} from "./content/itinery.component";
+import {OurStoryComponent} from "./content/our-story.component";
+import {BridalPartyComponent} from "./content/bridal-party.component";
+import {MenuComponent} from "./content/menu.component";
+import {DirectionsComponent} from "./content/directions.component";
+import {AccommodationComponent} from "./content/accommodation.component";
 
 @NgModule({
     declarations: [
         AboutComponent,
         AppComponent,
         HomeComponent,
-        ItemDetailEditComponent,
-        ItemDetailViewComponent,
-        ItemListComponent,        
         LoginComponent,
         PageNotFoundComponent,
-        UserEditComponent
+        UserEditComponent,
+        ItineryComponent,
+        OurStoryComponent,
+        BridalPartyComponent,
+        MenuComponent,
+        DirectionsComponent,
+        AccommodationComponent
     ],
     imports: [
         BrowserModule,
@@ -42,8 +47,7 @@ import {UserEditComponent} from "./user-edit.component";
     ],
     providers: [
         AuthHttp,
-        AuthService,
-        ItemService
+        AuthService
     ],
     bootstrap: [AppComponent]
 })

@@ -1,12 +1,9 @@
 ﻿import {Component} from "@angular/core";
 
 @Component({
+    moduleId: __moduleName,
     selector: "about",
-    template: `<h2>{{title}}</h2>
-        <div>
-            WeddingSite: a production-ready, fully-featued SPA sample powered by ASP.NET Core Web API and Angular 2.
-        </div>
-    `
+    templateUrl: "about.component.html"
 })
 export class AboutComponent {
     title = "About";

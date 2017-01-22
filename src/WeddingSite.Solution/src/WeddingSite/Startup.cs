@@ -128,8 +128,8 @@ namespace WeddingSite
             {
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true,
-                AppId = Configuration["FacebookAppId"],
-                AppSecret = Configuration["FacebookAppSecret"],
+                AppId = Configuration["Authentication:Facebook:AppId"],
+                AppSecret = Configuration["Authentication:Facebook:AppSecret"],
                 CallbackPath = "/signin-facebook",
                 Scope =
                 {
@@ -141,8 +141,8 @@ namespace WeddingSite
             {
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true,
-                ClientId = Configuration["GoogleAppId"],
-                ClientSecret = Configuration["GoogleAppSecret"],
+                ClientId = Configuration["Authentication:Google:ClientId"],
+                ClientSecret = Configuration["Authentication:Google:ClientSecret"],
                 CallbackPath = "/signin-google",
                 Scope =
                 {
@@ -195,7 +195,7 @@ namespace WeddingSite
             using (var scope = services.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                await context.Database.EnsureCreatedAsync();
+                await context.Database.EnsureCreatedAsync(cancellationToken);
 
                 var manager = scope.ServiceProvider.GetRequiredService<OpenIddictApplicationManager<OpenIddictApplication>>();
 

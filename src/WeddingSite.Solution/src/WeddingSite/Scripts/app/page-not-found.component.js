@@ -26,8 +26,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }());
             PageNotFoundComponent = __decorate([
                 core_1.Component({
+                    moduleId: __moduleName,
                     selector: "page-not-found",
-                    template: "<h2>{{title}}</h2>\n        <div>\n            Oops.. This page does not exist (yet!).\n        </div>\n    "
+                    templateUrl: "page-not-found.component.html"
                 }),
                 __metadata("design:paramtypes", [])
             ], PageNotFoundComponent);

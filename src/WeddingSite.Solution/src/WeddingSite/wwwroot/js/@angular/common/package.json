@@ -1,15 +1,7 @@
 {
   "_args": [
     [
-      {
-        "raw": "@angular/common@2.0.0-rc.5",
-        "scope": "@angular",
-        "escapedName": "@angular%2fcommon",
-        "name": "@angular/common",
-        "rawSpec": "2.0.0-rc.5",
-        "spec": "2.0.0-rc.5",
-        "type": "version"
-      },
+      "@angular/common@2.0.0-rc.5",
       "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
     ]
   ],
@@ -23,17 +15,16 @@
     "tmp": "tmp/common-2.0.0-rc.5.tgz_1470759616039_0.6053975811228156"
   },
   "_npmUser": {
-    "name": "angular",
-    "email": "angular-core+npm@google.com"
+    "email": "angular-core+npm@google.com",
+    "name": "angular"
   },
   "_npmVersion": "3.9.2",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "@angular/common@2.0.0-rc.5",
-    "scope": "@angular",
-    "escapedName": "@angular%2fcommon",
     "name": "@angular/common",
+    "raw": "@angular/common@2.0.0-rc.5",
     "rawSpec": "2.0.0-rc.5",
+    "scope": "@angular",
     "spec": "2.0.0-rc.5",
     "type": "version"
   },
@@ -60,6 +51,7 @@
     "tarball": "https://registry.npmjs.org/@angular/common/-/common-2.0.0-rc.5.tgz"
   },
   "homepage": "https://github.com/angular/angular#readme",
+  "installable": true,
   "jsnext:main": "esm/index.js",
   "license": "MIT",
   "main": "index.js",
@@ -74,7 +66,6 @@
   "peerDependencies": {
     "@angular/core": "^2.0.0-rc.5"
   },
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angular/angular.git"

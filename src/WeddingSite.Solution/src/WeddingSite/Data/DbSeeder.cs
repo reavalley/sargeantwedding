@@ -14,8 +14,8 @@ namespace WeddingSite.Data
     public class DbSeeder
     {
         private readonly ApplicationDbContext _dbContext;
-        private RoleManager<IdentityRole> _roleManager;
-        private UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
 
         public DbSeeder(ApplicationDbContext dbContext, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)

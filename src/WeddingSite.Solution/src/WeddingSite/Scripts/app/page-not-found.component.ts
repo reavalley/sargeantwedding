@@ -1,12 +1,9 @@
 ﻿import {Component} from "@angular/core";
 
 @Component({
+    moduleId: __moduleName,
     selector: "page-not-found",
-    template: `<h2>{{title}}</h2>
-        <div>
-            Oops.. This page does not exist (yet!).
-        </div>
-    `
+    templateUrl: "page-not-found.component.html"
 })
 export class PageNotFoundComponent {
     title = "Page not found";

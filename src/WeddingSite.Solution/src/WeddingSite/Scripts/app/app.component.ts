@@ -8,7 +8,7 @@ import {AuthService} from "./auth.service";
     templateUrl: "app.component.html"
 })
 export class AppComponent {
-    title = "WeddingSite";
+    title = "Ben and Hayley's Wedding";
 
     constructor(public router: Router, public authService: AuthService, public zone: NgZone) {
         if (!(<any>window).externalProviderLogin) {

@@ -26,8 +26,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }());
             HomeComponent = __decorate([
                 core_1.Component({
+                    moduleId: __moduleName,
                     selector: "home",
-                    template: "<h2>A non-comprehensive directory of open-source video games available on the web</h2>\n    <div class=\"col-md-4\">\n        <item-list class=\"latest\"></item-list>\n    </div>\n    <div class=\"col-md-4\">\n        <item-list class=\"most-viewed\"></item-list>\n    </div>\n    <div class=\"col-md-4\">\n        <item-list class=\"random\"></item-list>\n    </div>\n    "
+                    templateUrl: "app.component.html"
                 }),
                 __metadata("design:paramtypes", [])
             ], HomeComponent);

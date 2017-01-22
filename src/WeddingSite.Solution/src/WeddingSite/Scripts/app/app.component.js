@@ -29,7 +29,7 @@ System.register(["@angular/core", "@angular/router", "./auth.service"], function
                     this.router = router;
                     this.authService = authService;
                     this.zone = zone;
-                    this.title = "WeddingSite";
+                    this.title = "Ben and Hayley's Wedding";
                     if (!window.externalProviderLogin) {
                         var self = this;
                         window.externalProviderLogin = function (auth) {

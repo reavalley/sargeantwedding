@@ -19,7 +19,7 @@
     "WeddingSite": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000",
+      "launchUrl": "http://www.benandhayleyswedding.co.uk/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

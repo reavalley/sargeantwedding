@@ -26,8 +26,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }());
             AboutComponent = __decorate([
                 core_1.Component({
+                    moduleId: __moduleName,
                     selector: "about",
-                    template: "<h2>{{title}}</h2>\n        <div>\n            WeddingSite: a production-ready, fully-featued SPA sample powered by ASP.NET Core Web API and Angular 2.\n        </div>\n    "
+                    templateUrl: "about.component.html"
                 }),
                 __metadata("design:paramtypes", [])
             ], AboutComponent);
