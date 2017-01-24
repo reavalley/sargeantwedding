@@ -3,8 +3,7 @@
         <div class="row header">
             <div class="col-md-11">
                 <h1>
-                    {{title}}
-                    <p class="lead">23rd July 2017</p>
+                    {{title}}                    
                 </h1>
             </div>
             <div class="col-md-1">
@@ -19,17 +18,18 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3" id="left-col">
-            <ul class="nav nav-stacked" id="sidebar">
-                <li><a [routerLink]="['itinery']">Itinery</a></li>
-                <li><a [routerLink]="['our-story']">Our Story</a></li>
-                <li><a [routerLink]="['bridal-party']">Bridal Party</a></li>
-                <li><a [routerLink]="['menu']">Menu</a></li>
-                <li><a [routerLink]="['directions']">Directions and Map</a></li>
-                <li><a [routerLink]="['accommodation']">Accommodation</a></li>
-            </ul>
+        <div class="col-md-4" id="left-col">
+            <div class="list-group table-of-contents" id="sidebar">
+                <a class="list-group-item" [routerLink]="['']">Home</a>
+                <a class="list-group-item" [routerLink]="['itinery']">Itinery</a>
+                <a class="list-group-item" [routerLink]="['our-story']">Our Story</a>
+                <a class="list-group-item" [routerLink]="['bridal-party']">Bridal Party</a>
+                <a class="list-group-item" [routerLink]="['menu']">Menu</a>
+                <a class="list-group-item" [routerLink]="['directions']">Directions and Map</a>
+                <a class="list-group-item" [routerLink]="['accommodation']">Accommodation</a>
+            </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
             <router-outlet></router-outlet>
         </div>
     </div>    

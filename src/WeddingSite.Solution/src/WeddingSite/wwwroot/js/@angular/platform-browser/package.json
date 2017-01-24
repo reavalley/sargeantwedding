@@ -1,13 +1,22 @@
 {
   "_args": [
     [
-      "@angular/platform-browser@2.0.0-rc.5",
-      "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
+      {
+        "raw": "@angular/platform-browser@2.0.0-rc.5",
+        "scope": "@angular",
+        "escapedName": "@angular%2fplatform-browser",
+        "name": "@angular/platform-browser",
+        "rawSpec": "2.0.0-rc.5",
+        "spec": "2.0.0-rc.5",
+        "type": "version"
+      },
+      "C:\\GitHub\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
     ]
   ],
   "_from": "@angular/platform-browser@2.0.0-rc.5",
   "_id": "@angular/platform-browser@2.0.0-rc.5",
   "_inCache": true,
+  "_installable": true,
   "_location": "/@angular/platform-browser",
   "_nodeVersion": "5.4.1",
   "_npmOperationalInternal": {
@@ -15,16 +24,17 @@
     "tmp": "tmp/platform-browser-2.0.0-rc.5.tgz_1470759648464_0.3702989569865167"
   },
   "_npmUser": {
-    "email": "angular-core+npm@google.com",
-    "name": "angular"
+    "name": "angular",
+    "email": "angular-core+npm@google.com"
   },
   "_npmVersion": "3.9.2",
   "_phantomChildren": {},
   "_requested": {
-    "name": "@angular/platform-browser",
     "raw": "@angular/platform-browser@2.0.0-rc.5",
-    "rawSpec": "2.0.0-rc.5",
     "scope": "@angular",
+    "escapedName": "@angular%2fplatform-browser",
+    "name": "@angular/platform-browser",
+    "rawSpec": "2.0.0-rc.5",
     "spec": "2.0.0-rc.5",
     "type": "version"
   },
@@ -35,7 +45,7 @@
   "_shasum": "2d7ad0bd43d5e148e60f7e10e6e92e1de3aa5ce4",
   "_shrinkwrap": null,
   "_spec": "@angular/platform-browser@2.0.0-rc.5",
-  "_where": "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
+  "_where": "C:\\GitHub\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
   "author": {
     "name": "angular"
   },
@@ -51,7 +61,6 @@
     "tarball": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-2.0.0-rc.5.tgz"
   },
   "homepage": "https://github.com/angular/angular#readme",
-  "installable": true,
   "jsnext:main": "esm/index.js",
   "license": "MIT",
   "main": "index.js",
@@ -64,10 +73,11 @@
   "name": "@angular/platform-browser",
   "optionalDependencies": {},
   "peerDependencies": {
+    "@angular/core": "^2.0.0-rc.5",
     "@angular/common": "^2.0.0-rc.5",
-    "@angular/compiler": "^2.0.0-rc.5",
-    "@angular/core": "^2.0.0-rc.5"
+    "@angular/compiler": "^2.0.0-rc.5"
   },
+  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angular/angular.git"

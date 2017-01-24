@@ -11,28 +11,28 @@ System.register(["@angular/core"], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var HomeComponent;
+    var BridalPartyComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            HomeComponent = (function () {
-                function HomeComponent() {
-                    this.title = "Welcome View";
+            BridalPartyComponent = (function () {
+                function BridalPartyComponent() {
+                    this.title = "Bridal Party";
                 }
-                HomeComponent = __decorate([
+                BridalPartyComponent = __decorate([
                     core_1.Component({
                         moduleId: __moduleName,
-                        selector: "home",
-                        templateUrl: "home.component.html"
+                        selector: "bridal-party",
+                        templateUrl: "bridal-party.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], HomeComponent);
-                return HomeComponent;
+                ], BridalPartyComponent);
+                return BridalPartyComponent;
             }());
-            exports_1("HomeComponent", HomeComponent);
+            exports_1("BridalPartyComponent", BridalPartyComponent);
         }
     }
 });

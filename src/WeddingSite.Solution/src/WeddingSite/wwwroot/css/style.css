@@ -1,9 +1,21 @@
+@font-face {
+  font-family: "Adine Kirnberg";
+  src: url(/fonts/Adine-Kirnberg.ttf) format("truetype");
+}
 body {
   padding-top: 110px;
   background-color: #F9EBD0;
   background-image: url(/img/background-no-horse-shoes.png), url(/img/old_map.png);
   background-position: center top;
   background-repeat: repeat-x, repeat;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-top: 0;
 }
 .navbar-inverse {
   background-color: #BBAD92;

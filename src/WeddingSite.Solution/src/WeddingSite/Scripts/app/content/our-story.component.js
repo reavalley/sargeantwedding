@@ -11,28 +11,28 @@ System.register(["@angular/core"], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var HomeComponent;
+    var OurStoryComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            HomeComponent = (function () {
-                function HomeComponent() {
-                    this.title = "Welcome View";
+            OurStoryComponent = (function () {
+                function OurStoryComponent() {
+                    this.title = "Our Story";
                 }
-                HomeComponent = __decorate([
+                OurStoryComponent = __decorate([
                     core_1.Component({
                         moduleId: __moduleName,
-                        selector: "home",
-                        templateUrl: "home.component.html"
+                        selector: "our-story",
+                        templateUrl: "our-story.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], HomeComponent);
-                return HomeComponent;
+                ], OurStoryComponent);
+                return OurStoryComponent;
             }());
-            exports_1("HomeComponent", HomeComponent);
+            exports_1("OurStoryComponent", OurStoryComponent);
         }
     }
 });
