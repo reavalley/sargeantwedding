@@ -1,22 +1,13 @@
 {
   "_args": [
     [
-      {
-        "raw": "@angular/core@2.0.0-rc.5",
-        "scope": "@angular",
-        "escapedName": "@angular%2fcore",
-        "name": "@angular/core",
-        "rawSpec": "2.0.0-rc.5",
-        "spec": "2.0.0-rc.5",
-        "type": "version"
-      },
-      "C:\\GitHub\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
+      "@angular/core@2.0.0-rc.5",
+      "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
     ]
   ],
   "_from": "@angular/core@2.0.0-rc.5",
   "_id": "@angular/core@2.0.0-rc.5",
   "_inCache": true,
-  "_installable": true,
   "_location": "/@angular/core",
   "_nodeVersion": "5.4.1",
   "_npmOperationalInternal": {
@@ -24,17 +15,16 @@
     "tmp": "tmp/core-2.0.0-rc.5.tgz_1470759631964_0.3144527019467205"
   },
   "_npmUser": {
-    "name": "angular",
-    "email": "angular-core+npm@google.com"
+    "email": "angular-core+npm@google.com",
+    "name": "angular"
   },
   "_npmVersion": "3.9.2",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "@angular/core@2.0.0-rc.5",
-    "scope": "@angular",
-    "escapedName": "@angular%2fcore",
     "name": "@angular/core",
+    "raw": "@angular/core@2.0.0-rc.5",
     "rawSpec": "2.0.0-rc.5",
+    "scope": "@angular",
     "spec": "2.0.0-rc.5",
     "type": "version"
   },
@@ -45,7 +35,7 @@
   "_shasum": "6f901fd1ce00e9889c0a3678445a19ac75ea0b63",
   "_shrinkwrap": null,
   "_spec": "@angular/core@2.0.0-rc.5",
-  "_where": "C:\\GitHub\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
+  "_where": "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
   "author": {
     "name": "angular"
   },
@@ -61,6 +51,7 @@
     "tarball": "https://registry.npmjs.org/@angular/core/-/core-2.0.0-rc.5.tgz"
   },
   "homepage": "https://github.com/angular/angular#readme",
+  "installable": true,
   "jsnext:main": "esm/index.js",
   "license": "MIT",
   "main": "index.js",
@@ -76,7 +67,6 @@
     "rxjs": "5.0.0-beta.6",
     "zone.js": "^0.6.6"
   },
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angular/angular.git"

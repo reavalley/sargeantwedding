@@ -1,10 +1,10 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var User;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             User = (function () {
                 function User(UserName, Password, PasswordNew, Email, DisplayName) {
                     this.UserName = UserName;
@@ -17,5 +17,5 @@ System.register([], function(exports_1, context_1) {
             }());
             exports_1("User", User);
         }
-    }
+    };
 });

@@ -16,7 +16,7 @@ import {AccommodationComponent} from "./content/accommodation.component";
 const appRoutes: Routes = [
     {
         path: "",
-        component: HomeComponent
+        component: OurStoryComponent
     },
     {
         path: "home",
