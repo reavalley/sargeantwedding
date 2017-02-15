@@ -1,5 +1,6 @@
-System.register(["@angular/core", "@angular/forms", "@angular/router", "./auth.service", "./model/user"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/forms", "@angular/router", "./auth.service", "./model/user"], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,10 +10,10 @@ System.register(["@angular/core", "@angular/forms", "@angular/router", "./auth.s
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
-    var core_1, forms_1, router_1, auth_service_1, user_1, UserEditComponent;
+    var core_1, forms_1, router_1, auth_service_1, user_1;
+    var UserEditComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -27,9 +28,8 @@ System.register(["@angular/core", "@angular/forms", "@angular/router", "./auth.s
             },
             function (user_1_1) {
                 user_1 = user_1_1;
-            }
-        ],
-        execute: function () {
+            }],
+        execute: function() {
             UserEditComponent = (function () {
                 function UserEditComponent(fb, router, activatedRoute, authService) {
                     this.fb = fb;
@@ -88,6 +88,8 @@ System.register(["@angular/core", "@angular/forms", "@angular/router", "./auth.s
                                 .setValue(user.Email);
                             _this.userForm.find("displayName")
                                 .setValue(user.DisplayName);
+                            _this.userForm.find("")
+                                .setValue(user.IsSocialLogin);
                         });
                     }
                 };
@@ -126,7 +128,7 @@ System.register(["@angular/core", "@angular/forms", "@angular/router", "./auth.s
                         });
                     }
                     else {
-                        var user = new user_1.User(this.userForm.value.username, this.userForm.value.passwordCurrent, this.userForm.value.password, this.userForm.value.email, this.userForm.value.displayName);
+                        var user = new user_1.User(this.userForm.value.username, this.userForm.value.passwordCurrent, this.userForm.value.password, this.userForm.value.email, this.userForm.value.displayName, this.userForm.value.isSocialLogin);
                         this.authService.update(user)
                             .subscribe(function (data) {
                             if (data.error == null) {
@@ -144,20 +146,17 @@ System.register(["@angular/core", "@angular/forms", "@angular/router", "./auth.s
                         });
                     }
                 };
+                UserEditComponent = __decorate([
+                    core_1.Component({
+                        moduleId: __moduleName,
+                        selector: "user-edit",
+                        templateUrl: "user-edit.component.html"
+                    }), 
+                    __metadata('design:paramtypes', [forms_1.FormBuilder, router_1.Router, router_1.ActivatedRoute, auth_service_1.AuthService])
+                ], UserEditComponent);
                 return UserEditComponent;
             }());
-            UserEditComponent = __decorate([
-                core_1.Component({
-                    moduleId: __moduleName,
-                    selector: "user-edit",
-                    templateUrl: "user-edit.component.html"
-                }),
-                __metadata("design:paramtypes", [forms_1.FormBuilder,
-                    router_1.Router,
-                    router_1.ActivatedRoute,
-                    auth_service_1.AuthService])
-            ], UserEditComponent);
             exports_1("UserEditComponent", UserEditComponent);
         }
-    };
+    }
 });

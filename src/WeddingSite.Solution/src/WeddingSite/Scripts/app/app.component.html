@@ -1,17 +1,12 @@
 ﻿<div id="masthead">
     <div class="container">
         <div class="row header">
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <h1>
+                    <img src="/img/logo-transparent.png" />
                     {{title}}                    
                 </h1>
             </div>
-            <div class="col-md-1">
-                <div class="advert">
-                    <img src="/img/logo-transparent.png" />
-                </div>
-            </div>
-
         </div>
     </div><!--/container-->
 </div><!--/masthead-->
@@ -23,10 +18,14 @@
                 <a class="list-group-item" [routerLink]="['']">Home</a>
                 <a class="list-group-item" [routerLink]="['itinery']">Itinery</a>
                 <a class="list-group-item" [routerLink]="['our-story']">Our Story</a>
+                <a class="list-group-item" [routerLink]="['our-wedding-wish']">Our Wedding Wish</a>
                 <a class="list-group-item" [routerLink]="['bridal-party']">Bridal Party</a>
                 <a class="list-group-item" [routerLink]="['menu']">Menu</a>
                 <a class="list-group-item" [routerLink]="['directions']">Directions and Map</a>
                 <a class="list-group-item" [routerLink]="['accommodation']">Accommodation</a>
+                <a class="list-group-item" [routerLink]="['account']" *ngIf="isLoggedIn()">Rsvp</a>
+                <a class="list-group-item" [routerLink]="['login']" *ngIf="!isLoggedIn()">Login</a>
+                <a class="list-group-item" (click)="logout()" *ngIf="isLoggedIn()">Logout</a>
             </div>
         </div>
         <div class="col-md-8">

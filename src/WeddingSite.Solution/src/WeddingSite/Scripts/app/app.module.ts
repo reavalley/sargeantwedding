@@ -21,6 +21,7 @@ import {BridalPartyComponent} from "./content/bridal-party.component";
 import {MenuComponent} from "./content/menu.component";
 import {DirectionsComponent} from "./content/directions.component";
 import {AccommodationComponent} from "./content/accommodation.component";
+import {WeddingWishComponent} from "./content/wedding-wish.component";
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import {AccommodationComponent} from "./content/accommodation.component";
         BridalPartyComponent,
         MenuComponent,
         DirectionsComponent,
-        AccommodationComponent
+        AccommodationComponent,
+        WeddingWishComponent
     ],
     imports: [
         BrowserModule,

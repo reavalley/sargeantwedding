@@ -11,28 +11,28 @@ System.register(["@angular/core"], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var OurStoryComponent;
+    var WeddingWishComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            OurStoryComponent = (function () {
-                function OurStoryComponent() {
-                    this.title = "Our Story";
+            WeddingWishComponent = (function () {
+                function WeddingWishComponent() {
+                    this.title = "Our Wedding Wish";
                 }
-                OurStoryComponent = __decorate([
+                WeddingWishComponent = __decorate([
                     core_1.Component({
                         moduleId: __moduleName,
-                        selector: "our-story",
-                        templateUrl: "our-story.component.html"
+                        selector: "wedding-wish",
+                        templateUrl: "wedding-wish.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], OurStoryComponent);
-                return OurStoryComponent;
+                ], WeddingWishComponent);
+                return WeddingWishComponent;
             }());
-            exports_1("OurStoryComponent", OurStoryComponent);
+            exports_1("WeddingWishComponent", WeddingWishComponent);
         }
     }
 });

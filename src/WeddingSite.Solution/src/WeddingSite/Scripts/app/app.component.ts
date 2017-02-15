@@ -26,6 +26,10 @@ export class AppComponent {
         return this.router.isActive(this.router.createUrlTree(data), true);       
     }
 
+    isLoggedIn(): boolean {
+        return this.authService.isLoggedIn();
+    }
+
     logout(): boolean {
         this.authService.logout().subscribe(result => {
 

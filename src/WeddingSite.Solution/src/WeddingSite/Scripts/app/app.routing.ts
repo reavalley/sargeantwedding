@@ -12,6 +12,7 @@ import {BridalPartyComponent} from "./content/bridal-party.component";
 import {MenuComponent} from "./content/menu.component";
 import {DirectionsComponent} from "./content/directions.component";
 import {AccommodationComponent} from "./content/accommodation.component";
+import {WeddingWishComponent} from "./content/wedding-wish.component";
 
 const appRoutes: Routes = [
     {
@@ -45,6 +46,10 @@ const appRoutes: Routes = [
     {
         path: "our-story",
         component: OurStoryComponent
+    },
+    {
+        path: "our-wedding-wish",
+        component: WeddingWishComponent
     },
     {
         path: "bridal-party",

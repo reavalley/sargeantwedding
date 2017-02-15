@@ -24,6 +24,8 @@ namespace WeddingSite.Data.Users
         [Required]
         public DateTime LastModifiedDate { get; set; }
 
+        public bool IsSocialLogin { get; set; }
+
         public virtual List<Item> Items { get; set; }
 
         public virtual List<Comment> Comments { get; set; }

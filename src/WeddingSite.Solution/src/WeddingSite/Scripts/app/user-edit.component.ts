@@ -50,7 +50,8 @@ export class UserEditComponent {
                     Validators.required,
                     Validators.minLength(6)
                 ]],
-                displayName: ["", null]            
+                displayName: ["", null],
+                isSocialLogin: ["", null]           
             },
             {
                 validator: this.compareValidator('password', 'passwordConfirm')
@@ -79,6 +80,8 @@ export class UserEditComponent {
                         .setValue(user.Email);
                     this.userForm.find("displayName")
                         .setValue(user.DisplayName);
+                    this.userForm.find("isSocialLogin")
+                        .setValue(user.IsSocialLogin);
                 }
             );
         }
@@ -128,7 +131,8 @@ export class UserEditComponent {
                 this.userForm.value.passwordCurrent,
                 this.userForm.value.password,
                 this.userForm.value.email,
-                this.userForm.value.displayName);
+                this.userForm.value.displayName,
+                this.userForm.value.isSocialLogin);
             this.authService.update(user)
                 .subscribe((data) => {
                     if (data.error == null) {

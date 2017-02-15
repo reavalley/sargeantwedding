@@ -32,7 +32,8 @@ namespace WeddingSite.Controllers
                 {
                     UserName = user.UserName,
                     Email = user.Email,
-                    DisplayName = user.DisplayName
+                    DisplayName = user.DisplayName,
+                    IsSocialLogin = user.IsSocialLogin
                 }, DefaultJsonSettings);
             }
 
@@ -246,11 +247,12 @@ namespace WeddingSite.Controllers
                             LastModifiedDate = now
                         };
 
-                        await UserManager.CreateAsync(user, "Pass4External");
+                        await UserManager.CreateAsync(user);
 
                         await UserManager.AddToRoleAsync(user, "Registered");
 
                         user.EmailConfirmed = true;
+                        user.IsSocialLogin = true;
                         user.LockoutEnabled = false;
                     }
 

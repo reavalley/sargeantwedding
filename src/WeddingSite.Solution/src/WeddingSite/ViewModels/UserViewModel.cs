@@ -10,5 +10,6 @@ namespace WeddingSite.ViewModels
         public string PasswordNew { get; set; }
         public string Email { get; set; }
         public string DisplayName { get; set; }
+        public bool IsSocialLogin { get; set; }
     }
 }

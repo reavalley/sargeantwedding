@@ -4,6 +4,7 @@
         public Password: string,
         public PasswordNew: string,
         public Email: string,
-        public DisplayName: string
+        public DisplayName: string,
+        public IsSocialLogin: boolean
     ) { }
 }
