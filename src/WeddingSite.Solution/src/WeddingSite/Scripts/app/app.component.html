@@ -3,7 +3,7 @@
         <div class="row header">
             <div class="col-md-12">
                 <h1>
-                    <img src="/img/logo-transparent.png" />
+                    <img src="/img/logo.png" />
                     {{title}}                    
                 </h1>
             </div>
@@ -25,7 +25,7 @@
                 <a class="list-group-item" [routerLink]="['accommodation']">Accommodation</a>
                 <a class="list-group-item" [routerLink]="['account']" *ngIf="isLoggedIn()">Rsvp</a>
                 <a class="list-group-item" [routerLink]="['login']" *ngIf="!isLoggedIn()">Login</a>
-                <a class="list-group-item" (click)="logout()" *ngIf="isLoggedIn()">Logout</a>
+                <a class="list-group-item" (click)="logout()" *ngIf="isLoggedIn()" [(ngModel)]="getUserName()"></a>
             </div>
         </div>
         <div class="col-md-8">

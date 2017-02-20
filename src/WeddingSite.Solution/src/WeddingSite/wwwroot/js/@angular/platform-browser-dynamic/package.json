@@ -2,7 +2,7 @@
   "_args": [
     [
       "@angular/platform-browser-dynamic@2.0.0-rc.5",
-      "C:\\git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
+      "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
     ]
   ],
   "_from": "@angular/platform-browser-dynamic@2.0.0-rc.5",
@@ -35,7 +35,7 @@
   "_shasum": "4a5362679a9378600a1cc012030f2bc51555f530",
   "_shrinkwrap": null,
   "_spec": "@angular/platform-browser-dynamic@2.0.0-rc.5",
-  "_where": "C:\\git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
+  "_where": "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
   "author": {
     "name": "angular"
   },

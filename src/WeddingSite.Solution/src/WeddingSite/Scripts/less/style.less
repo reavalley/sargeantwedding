@@ -25,15 +25,21 @@ body {
    background-image: url(/img/background-no-horse-shoes.png), url(/img/old_map.png);
    background-position: center top;
    background-repeat: repeat-x, repeat;
+   font-size: 14px;
 }
 
 h1, .h1, h2, .h2, h3, .h3 {
     margin-top: 0;
+    font-family: 'Kunstler Script'; 
 }
 
 h2{
     font-family: 'Kunstler Script';
     font-size: 50px;
+}
+
+h3{
+    font-size: 35px;
 }
 
 .navbar-inverse {
@@ -137,3 +143,32 @@ h2{
     background: transparent !important;
     
 }
+
+ menu{
+     padding: 0px;
+     margin: 0px;
+ }
+
+ #menu, #barmenu{
+     background-color:#fff;
+     padding: 5px;
+     padding-top: 15px;
+     padding-bottom: 15px;
+     border: 1px solid rgb(221, 221, 221);
+ }
+
+ #menu p, #menu h3, #barmenu p, #barmenu h3{
+     text-align: center;
+ }
+
+ #menu p, #barmenu p{
+     font-style: italic;
+ }
+
+ #barmenu{
+     margin-top: 50px;
+ }
+
+ .list-group-item{
+     word-wrap: break-word;
+ }

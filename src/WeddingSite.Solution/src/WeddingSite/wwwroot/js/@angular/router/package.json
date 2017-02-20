@@ -2,7 +2,7 @@
   "_args": [
     [
       "@angular/router@3.0.0-rc.1",
-      "C:\\git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
+      "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
     ]
   ],
   "_from": "@angular/router@3.0.0-rc.1",
@@ -35,7 +35,7 @@
   "_shasum": "7c89e7bfac8000ddf7808b4ac63031b4e824baa7",
   "_shrinkwrap": null,
   "_spec": "@angular/router@3.0.0-rc.1",
-  "_where": "C:\\git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
+  "_where": "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
   "author": {
     "name": "angular"
   },

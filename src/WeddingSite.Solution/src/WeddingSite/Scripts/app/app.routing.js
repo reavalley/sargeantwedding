@@ -1,10 +1,9 @@
-System.register(["@angular/router", "./about.component", "./login.component", "./page-not-found.component", "./user-edit.component", "./content/itinery.component", "./content/our-story.component", "./content/bridal-party.component", "./content/menu.component", "./content/directions.component", "./content/accommodation.component", "./content/wedding-wish.component"], function(exports_1, context_1) {
+System.register(["@angular/router", "./about.component", "./login.component", "./page-not-found.component", "./user-edit.component", "./content/itinery.component", "./content/our-story.component", "./content/bridal-party.component", "./content/menu.component", "./content/directions.component", "./content/accommodation.component", "./content/wedding-wish.component"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var router_1, about_component_1, login_component_1, page_not_found_component_1, user_edit_component_1, itinery_component_1, our_story_component_1, bridal_party_component_1, menu_component_1, directions_component_1, accommodation_component_1, wedding_wish_component_1;
-    var appRoutes, AppRoutingProviders, AppRouting;
+    var router_1, about_component_1, login_component_1, page_not_found_component_1, user_edit_component_1, itinery_component_1, our_story_component_1, bridal_party_component_1, menu_component_1, directions_component_1, accommodation_component_1, wedding_wish_component_1, appRoutes, AppRoutingProviders, AppRouting;
     return {
-        setters:[
+        setters: [
             function (router_1_1) {
                 router_1 = router_1_1;
             },
@@ -40,8 +39,9 @@ System.register(["@angular/router", "./about.component", "./login.component", ".
             },
             function (wedding_wish_component_1_1) {
                 wedding_wish_component_1 = wedding_wish_component_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             appRoutes = [
                 {
                     path: "",
@@ -103,5 +103,5 @@ System.register(["@angular/router", "./about.component", "./login.component", ".
             exports_1("AppRoutingProviders", AppRoutingProviders = []);
             exports_1("AppRouting", AppRouting = router_1.RouterModule.forRoot(appRoutes));
         }
-    }
+    };
 });

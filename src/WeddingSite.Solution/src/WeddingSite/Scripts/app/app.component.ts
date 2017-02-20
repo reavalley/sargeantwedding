@@ -9,6 +9,7 @@ import {AuthService} from "./auth.service";
 })
 export class AppComponent {
     title = "Ben and Hayley's Wedding";
+    userName: string;
 
     constructor(public router: Router, public authService: AuthService, public zone: NgZone) {
         if (!(<any>window).externalProviderLogin) {
@@ -20,6 +21,22 @@ export class AppComponent {
                 });
             }
         }
+    }
+    
+    getUserName(): string {
+        if (this.isLoggedIn()) {
+            this.authService.get().subscribe(
+                user => {
+                    if (user.IsSocialLogin) {
+                        return user.Email;
+                    }
+                    else {
+                        return user.UserName;
+                    }
+                }
+            );
+        }
+        return "";
     }
 
     isActive(data: any[]): boolean {
