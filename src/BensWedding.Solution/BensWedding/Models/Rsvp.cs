@@ -22,6 +22,8 @@ namespace BensWedding.Models
         [Required]
         public MenuOption MenuOption { get; set; }
 
+        public string DietaryRequirements { get; set; }
+
         [ForeignKey("User")]
         public string UserId { get; set; }
 

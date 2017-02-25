@@ -21,6 +21,13 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(model => model.DietaryRequirements, "Dietary Requirements", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.DietaryRequirements, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DietaryRequirements)
+        </div>
+    </div>
+    <div class="form-group">
         @Html.LabelFor(model => model.IsCamping, "Are you Camping?", new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben and Hayley's Wedding</title>
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div id="masthead">
+        <div class="container">
+            <div class="row header">
+                <div class="col-md-12">
+                    <h1>
+                        <img src="@Url.Content("~/Content/images/logo.png")" />
+                        Ben and Hayley's Wedding
+                    </h1>
+                </div>
+            </div>
+        </div><!--/container-->
+    </div><!--/masthead-->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" id="left-col">
+                <div class="list-group table-of-contents" id="sidebar">
+                    @Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @class= "list-group-item" })
+                    @Html.ActionLink("Itinery", "Itinery", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+                    @Html.ActionLink("Our Story", "OurStory", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+                    @Html.ActionLink("Our Wedding Wish", "WeddingWish", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+                    @Html.ActionLink("Bridal Party", "BridalParty", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+                    @Html.ActionLink("Menu", "Menu", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+                    @Html.ActionLink("Directions and Map", "Directions", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+                    @Html.ActionLink("Accommodation", "Accommodation", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("View Rsvps", "ViewRsvps", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+                    }
+
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+            <div class="col-md-8">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

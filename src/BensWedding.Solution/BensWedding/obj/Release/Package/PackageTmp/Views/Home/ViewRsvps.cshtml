@@ -1,0 +1,37 @@
+﻿@model List<BensWedding.Models.RsvpDisplayViewModel>
+
+<div class="rsvp-table">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Attending</th>
+                <th>Menu Option</th>
+                <th>Dietary Requirements</th>
+                <th>Camping?</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rsvp in Model)
+            {
+                <tr>
+                    <td>@rsvp.Name</td>
+                    <td>@rsvp.Attending</td>
+                    <td>@rsvp.MenuOption</td>
+                    <td>@rsvp.DietaryRequirements</td>
+                    <td>
+                        @if (rsvp.IsCamping)
+                        {
+                            <span>Yes</span>
+                        }
+                        else
+                        {
+                            <span>No</span>
+                        }
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,27 @@
+﻿@model BensWedding.Models.PartyViewModel
+
+<h2>Meet the Bridal Party</h2>
+
+<div class="row">
+
+    @foreach (var member in Model.BridalParty.OrderBy(x => x.Order))
+    {
+        <div class="col-sm-4">
+            <div class="panel panel-info">
+                <div class="panel-thumbnail">
+                    <img class="img-responsive" src="@Url.Content(member.ImageUrl)" alt="no image" />
+                </div>
+                <div class="panel-body">
+                    <p class="lead">@member.Name</p>
+                    <p>
+                        @member.Title
+                    </p>
+                    <p>
+                       @member.Description
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+    
+</div>

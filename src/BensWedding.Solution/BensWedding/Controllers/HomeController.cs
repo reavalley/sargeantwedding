@@ -1,6 +1,7 @@
 ﻿using BensWedding.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -46,7 +47,17 @@ namespace BensWedding.Controllers
 
         public ActionResult BridalParty()
         {
-            return View();
+            using (var dbContext = new ApplicationDbContext())
+            {
+                var partyMembers = dbContext.PartyMembers;
+
+                var model = new PartyViewModel
+                {
+                    BridalParty = partyMembers.ToList()
+                };
+                
+                return View(model);
+            }
         }
 
         public ActionResult Menu()
@@ -62,6 +73,39 @@ namespace BensWedding.Controllers
         public ActionResult Accommodation()
         {
             return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult ViewRsvps()
+        {
+            using (var dbContext = new ApplicationDbContext())
+            {
+                var options = dbContext.MenuOptions;
+                var attendings = dbContext.AttendingWhen;
+
+                var model = new List<RsvpDisplayViewModel>();
+
+                var rsvps = dbContext.Rsvps
+                    .Include(x => x.User)
+                    .Include(x => x.Attending)
+                    .Include(x => x.MenuOption);
+
+                foreach(var rsvp in rsvps)
+                {
+                    var vm = new RsvpDisplayViewModel
+                    {
+                        Attending = rsvp.Attending.Description,
+                        DietaryRequirements = rsvp.DietaryRequirements,
+                        IsCamping = rsvp.IsCamping,
+                        MenuOption = rsvp.MenuOption.Title,
+                        Name = rsvp.User.DisplayName
+                    };
+
+                    model.Add(vm);
+                }
+
+                return View(model);
+            }
         }
 
         [Authorize]
@@ -87,6 +131,7 @@ namespace BensWedding.Controllers
                     model.IsCamping = rsvp.IsCamping;
                     model.SelectedAttendingId = rsvp.Attending.Id;
                     model.SelectedMenuOptionId = rsvp.MenuOption.Id;
+                    model.DietaryRequirements = rsvp.DietaryRequirements;
                 }
                                
                 return View(model);
@@ -113,6 +158,7 @@ namespace BensWedding.Controllers
                 if (rsvp != null)
                 {
                     rsvp.IsCamping = rsvpViewModel.IsCamping;
+                    rsvp.DietaryRequirements = rsvpViewModel.DietaryRequirements;
                     rsvp.Attending = attending;
                     rsvp.MenuOption = menuOption;
                 }
@@ -123,6 +169,7 @@ namespace BensWedding.Controllers
                         Attending = attending,
                         MenuOption = menuOption,
                         IsCamping = rsvpViewModel.IsCamping,
+                        DietaryRequirements = rsvpViewModel.DietaryRequirements,
                         UserId = userid
                     };
 

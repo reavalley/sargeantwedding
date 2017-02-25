@@ -1,0 +1,188 @@
+﻿body {
+    padding-top: 110px;
+    background-color: #fff;
+    background-image: url(/Content/images/background-no-horse-shoes.png), url(/Content/images/old_map.png);
+    background-position: center top;
+    background-repeat: repeat-x, repeat;
+    font-size: 14px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+body {
+        
+   
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 0;
+    font-family: 'Kunstler Script'; 
+}
+
+h2{
+    font-family: 'Kunstler Script';
+    font-size: 50px;
+}
+
+h3{
+    font-size: 35px;
+}
+
+
+.navbar-inverse {
+    background-color: #BBAD92;
+    border-color: #9D8851;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #FFFFFF;
+}
+
+.well,.panel {
+    border-color:#d2d2d2;
+    box-shadow:0 1px 0 #cfcfcf;
+    border-radius:3px;
+}
+.panel .btn i,.btn span{
+  color:#666666;
+}
+.panel .panel-heading {
+  background-color:#ffffff;
+  font-weight:700;
+  font-size:16px;
+  color:#262626;
+  border-color:#ffffff;
+}
+.panel .panel-heading a {
+  font-weight:400;
+  font-size:11px;
+}
+.panel .panel-default {
+  border-color:#cccccc;
+}
+.panel .img-circle {
+  width:50px;
+  height:50px;
+}
+
+.panel .panel-thumbnail {
+  padding:0;
+}
+
+#masthead { 
+ 
+}
+
+#masthead h1 {
+ font-size: 70px;
+ font-family: 'Kunstler Script'; 
+ line-height: 1;
+ padding-top:20px;
+}
+
+#masthead .well {
+ margin-top:8%;
+}
+
+@media screen and (min-width: 768px) {
+  #masthead h1 {
+    font-size: 50px;
+  }
+}
+
+.navbar-bright {
+ background-color:#111155;
+ color:#fff;
+}
+
+.affix-top,.affix{
+ position: static;
+}
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
+    position: static;
+  	margin-top:30px;
+  	width:228px;
+  }
+  
+  #sidebar.affix {
+    position: fixed;
+    top:70px;
+    width:228px;
+  }
+}
+
+#sidebar li.active {
+  border:0 #eee solid;
+  border-right-width:5px;
+}
+
+ .advert {
+    width: auto !important;
+    height: auto !important;
+    margin: 15px -30px -31px !important;
+    padding: 20px !important;
+    border: 0;
+    overflow: hidden;
+    text-align: left;
+    font-size: 13px !important;
+    background: transparent !important;
+    
+}
+
+ menu{
+     padding: 0px;
+     margin: 0px;
+ }
+
+ #menu, #barmenu{
+     background-color:#fff;
+     padding: 5px;
+     padding-top: 15px;
+     padding-bottom: 15px;
+     border: 1px solid rgb(221, 221, 221);
+ }
+
+ #menu p, #menu h3, #barmenu p, #barmenu h3{
+     text-align: center;
+ }
+
+ #menu p, #barmenu p{
+     font-style: italic;
+ }
+
+ #barmenu{
+     margin-top: 50px;
+     margin-bottom: 50px;
+ }
+
+ .list-group-item{
+     word-wrap: break-word;
+ }
+
+ hr {
+    border-top: 1px solid #999;
+}
+
+ .rsvp-table{
+     background-color:#fff;
+ }

@@ -1,84 +1,27 @@
-﻿<h2>Meet the Bridal Party</h2>
+﻿@model BensWedding.Models.PartyViewModel
+
+<h2>Meet the Bridal Party</h2>
 
 <div class="row">
-    <div class="col-sm-4">
-        <div class="panel panel-info">
-            <div class="panel-thumbnail">
-                <img class="img-responsive" src="/img/castle.jpg" alt="no image" />
-            </div>
-            <div class="panel-body">
-                <p class="lead">Megan Jones</p>
-                <p>
-                    Chief Bridesmaid
-                </p>
-                <p>
-                    Hayley's cousin
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="panel panel-info">
-            <div class="panel-thumbnail">
-                <img class="img-responsive" src="/img/snowy.jpg" alt="no image" />
-            </div>
-            <div class="panel-body">
-                <p class="lead">Amy Price</p>
-                <p>
-                    Bridesmaid
-                </p>
-                <p>
-                    Hayley's school friend since age 11
-                </p>
+
+    @foreach (var member in Model.BridalParty.OrderBy(x => x.Order))
+    {
+        <div class="col-sm-4">
+            <div class="panel panel-info">
+                <div class="panel-thumbnail">
+                    <img class="img-responsive" src="@Url.Content(member.ImageUrl)" alt="no image" />
+                </div>
+                <div class="panel-body">
+                    <p class="lead">@member.Name</p>
+                    <p>
+                        @member.Title
+                    </p>
+                    <p>
+                       @member.Description
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="panel panel-info">
-            <div class="panel-thumbnail">
-                <img class="img-responsive" src="/img/scuba.jpg" alt="no image" />
-            </div>
-            <div class="panel-body">
-                <p class="lead">Liv O'Toole</p>
-                <p>
-                    Bridesmaid
-                </p>
-                <p>
-                    Hayley's school friend since age 11
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="panel panel-info">
-            <div class="panel-thumbnail">
-                <img class="img-responsive" src="/img/clichy.jpg" alt="no image" />
-            </div>
-            <div class="panel-body">
-                <p class="lead">Sarah Wicks</p>
-                <p>
-                    Bridesmaid
-                </p>
-                <p>
-                    Ben's sister
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="panel panel-info">
-            <div class="panel-thumbnail">
-                <img class="img-responsive" src="/img/harlech.jpg" alt="no image" />
-            </div>
-            <div class="panel-body">
-                <p class="lead">Sam Sargeant</p>
-                <p>
-                    Bridesmaid
-                </p>
-                <p>
-                    Ben's sister
-                </p>
-            </div>
-        </div>
-    </div>
+    }
+    
 </div>

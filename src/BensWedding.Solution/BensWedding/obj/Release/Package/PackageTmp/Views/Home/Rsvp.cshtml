@@ -1,0 +1,49 @@
+﻿@model BensWedding.Models.RsvpViewModel
+
+<h2>Rsvp</h2>
+
+@using (Html.BeginForm("SaveRsvp", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SelectedAttendingId, "Attending", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.SelectedAttendingId, new SelectList(Model.Attendings, "Id", "Description"), "- Please Select -", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SelectedAttendingId)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SelectedMenuOptionId, "Menu Option", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.SelectedMenuOptionId, new SelectList(Model.MenuOptions, "Id", "Description"), "- Please Select -", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SelectedMenuOptionId)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DietaryRequirements, "Dietary Requirements", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.DietaryRequirements, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DietaryRequirements)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsCamping, "Are you Camping?", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(model => model.IsCamping)
+                    @Html.ValidationMessageFor(model => model.IsCamping)
+                </label>
+            </div>           
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

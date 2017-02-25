@@ -18,6 +18,8 @@ namespace BensWedding.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string DisplayName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -63,9 +65,12 @@ namespace BensWedding.Models
         }
 
         public DbSet<Rsvp> Rsvps { get; set; }
+
         public DbSet<MenuOption> MenuOptions { get; set; }
 
         public DbSet<Attending> AttendingWhen { get; set; }
-        
+
+        public DbSet<PartyMember> PartyMembers { get; set; }
+
     }
 }

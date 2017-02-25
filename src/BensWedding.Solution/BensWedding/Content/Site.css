@@ -178,3 +178,11 @@ h3{
  .list-group-item{
      word-wrap: break-word;
  }
+
+ hr {
+    border-top: 1px solid #999;
+}
+
+ .rsvp-table{
+     background-color:#fff;
+ }

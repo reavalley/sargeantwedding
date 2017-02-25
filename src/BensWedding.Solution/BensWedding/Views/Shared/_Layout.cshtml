@@ -36,7 +36,12 @@
                     @Html.ActionLink("Menu", "Menu", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
                     @Html.ActionLink("Directions and Map", "Directions", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
                     @Html.ActionLink("Accommodation", "Accommodation", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
-                   
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("View Rsvps", "ViewRsvps", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+                    }
+
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
