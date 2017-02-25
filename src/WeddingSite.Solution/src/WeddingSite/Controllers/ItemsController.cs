@@ -43,14 +43,14 @@ namespace WeddingSite.Controllers
             var item = DbContext.Items.FirstOrDefault(x => x.Id == id);
 
             if (item != null)
-                return new JsonResult(TinyMapper.Map<ItemvViewModel>(item), DefaultJsonSettings);
+                return new JsonResult(TinyMapper.Map<ItemViewModel>(item), DefaultJsonSettings);
 
             return NotFound(new {Error = $"ItemID {id} has not been found"});
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Add([FromBody] ItemvViewModel itemViewModel)
+        public async Task<IActionResult> Add([FromBody] ItemViewModel itemViewModel)
         {
             if (itemViewModel != null)
             {
@@ -62,14 +62,14 @@ namespace WeddingSite.Controllers
 
                 DbContext.Items.Add(item);
                 DbContext.SaveChanges();
-                return new JsonResult(TinyMapper.Map<ItemvViewModel>(item), DefaultJsonSettings);
+                return new JsonResult(TinyMapper.Map<ItemViewModel>(item), DefaultJsonSettings);
             }
             return new StatusCodeResult(500);
         }
 
         [HttpPut("{id}")]
         [Authorize]
-        public IActionResult Update(int id, [FromBody] ItemvViewModel itemViewModel)
+        public IActionResult Update(int id, [FromBody] ItemViewModel itemViewModel)
         {
             if (itemViewModel == null) return NotFound(new {Error = $"Item ID {id} has not been found"});
 
@@ -88,7 +88,7 @@ namespace WeddingSite.Controllers
 
             DbContext.SaveChanges();
 
-            return new JsonResult(TinyMapper.Map<ItemvViewModel>(item), DefaultJsonSettings);
+            return new JsonResult(TinyMapper.Map<ItemViewModel>(item), DefaultJsonSettings);
         }
 
         [HttpDelete("{id}")]
@@ -163,9 +163,9 @@ namespace WeddingSite.Controllers
             return new JsonResult(ToItemViewModelList(items), DefaultJsonSettings);
         }
 
-        private static List<ItemvViewModel> ToItemViewModelList(IEnumerable<Item> items)
+        private static List<ItemViewModel> ToItemViewModelList(IEnumerable<Item> items)
         {
-            return items.Select(TinyMapper.Map<ItemvViewModel>).ToList();
+            return items.Select(TinyMapper.Map<ItemViewModel>).ToList();
         }
         
         private static int DefaultNumberOfItems => 5;

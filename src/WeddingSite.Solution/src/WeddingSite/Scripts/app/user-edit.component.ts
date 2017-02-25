@@ -103,7 +103,14 @@ export class UserEditComponent {
         event.preventDefault();
 
         if (this.isRegister) {
-            this.authService.add(this.userForm.value)
+            let user = new User(
+                this.userForm.value.username,
+                this.userForm.value.password,
+                this.userForm.value.passwordConfirm,
+                this.userForm.value.email,
+                this.userForm.value.displayName,
+                false);
+            this.authService.add(user)
                 .subscribe((data) => {
                     if (data.error == null) {
                         this.errorMessage = null;

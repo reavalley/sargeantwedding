@@ -13,6 +13,7 @@ import {MenuComponent} from "./content/menu.component";
 import {DirectionsComponent} from "./content/directions.component";
 import {AccommodationComponent} from "./content/accommodation.component";
 import {WeddingWishComponent} from "./content/wedding-wish.component";
+import {RsvpComponent} from "./rsvp.component";
 
 const appRoutes: Routes = [
     {
@@ -66,6 +67,10 @@ const appRoutes: Routes = [
     {
         path: "accommodation",
         component: AccommodationComponent
+    },
+    {
+        path: "rsvp",
+        component: RsvpComponent
     },
     {
         path: "**",

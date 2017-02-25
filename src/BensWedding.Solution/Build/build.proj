@@ -1,0 +1,80 @@
+<Project ToolsVersion="4.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Website -->
+    <SiteName>benswedding.reavalley-dev.co.uk</SiteName>
+    <SiteAppPool>benswedding.reavalley-dev.co.uk</SiteAppPool>
+    <SitePath>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\..\benswedding'))</SitePath>
+    <TPath>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\MSBuildExtensions4.0\MSBuild.ExtensionPack.tasks'))</TPath>
+    
+    <!-- User details -->
+    <UserName>devwebserver</UserName>
+    <Password>5un5h1ne!</Password>
+    
+    <!-- Powershell -->
+    <AssemblyFile>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\MSBuildExtensions4.0\MSBuild.ExtensionPack.TaskFactory.PowerShell.dll'))</AssemblyFile> 
+        
+  </PropertyGroup>
+  <UsingTask TaskFactory="PowershellTaskFactory" TaskName="ApplyAcls" AssemblyFile="$(AssemblyFile)"> 
+        <ParameterGroup> 
+            <FolderPath Required="true" ParameterType="System.String" /> 
+            <UserName Required="true" ParameterType="System.String" />             
+        </ParameterGroup> 
+        <Task> 
+           <![CDATA[
+            $Acl = Get-Acl $folderPath
+            $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($userName,"FullControl","Allow")
+            $Acl.SetAccessRule($Ar)
+            Set-Acl $folderPath $Acl
+          ]]>
+        </Task> 
+  </UsingTask> 
+
+  <Import Project="$(TPath)"/>
+  
+  <Target Name="Default">
+  
+    <!-- Check if the site exists -->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="CheckExists" Name="$(SiteName)">
+      <Output TaskParameter="Exists" PropertyName="SiteExists"/>
+    </MSBuild.ExtensionPack.Web.Iis7Website>
+    <Message Text="$(SiteName) exists: $(SiteExists)"/>
+    
+    <!-- Delete a site -->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="Delete" Name="$(SiteName)" Condition="$(SiteExists)"/>
+    <Message Text="Deleted $(SiteName)" Condition="$(SiteExists)"/>
+    
+    <!-- Create an AppPool --> 
+    <MSBuild.ExtensionPack.Web.Iis7AppPool TaskAction="Create" Name="$(SiteAppPool)" RecycleRequests="45" RecycleInterval="1987" ManagedRuntimeVersion="v4.0" 
+    Force="true" MaxProcesses="5" PipelineMode="Integrated" IdentityType="SpecificUser" PoolIdentity="$(UserName)" IdentityPassword="$(Password)"/>
+        
+    <!-- Create a site with a the app pool -->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="Create" Name="$(SiteName)" Path="$(SitePath)" Port="80" Force="true" AppPool="$(SiteAppPool)">
+      <Output TaskParameter="SiteId" PropertyName="NewSiteId"/>
+    </MSBuild.ExtensionPack.Web.Iis7Website>
+    <Message Text="$(SiteName) created with SiteId: $(NewSiteId)"/>
+    
+    <!-- Check whether a binding exists-->
+    <MSBuild.ExtensionPack.Web.Iis7Binding TaskAction="CheckExists" Name="$(SiteName)" BindingInformation="*:80:" BindingProtocol="http">
+        <Output TaskParameter="Exists" PropertyName="DoesExist"/>
+    </MSBuild.ExtensionPack.Web.Iis7Binding>
+    <Message Text="Exists: $(DoesExist)"/>
+    
+    <!-- Remove the binding -->
+    <MSBuild.ExtensionPack.Web.Iis7Binding Condition="$(DoesExist)" TaskAction="Remove" Name="$(SiteName)" BindingInformation="*:80:" BindingProtocol="http"/>
+    
+    <!-- Add a binding -->
+    <MSBuild.ExtensionPack.Web.Iis7Binding TaskAction="Add" Name="$(SiteName)" BindingInformation="*:80:benswedding.reavalley-dev.co.uk" BindingProtocol="http"/>
+            
+    <!-- Start a site -->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="Start" Name="$(SiteName)"/>
+    
+    <!-- Update a single host entry.  If the entry doesn't exist, it will be created. --> 
+    <MSBuild.ExtensionPack.Computer.HostsFile TaskAction="SetHostEntry" HostName="benswedding.reavalley-dev.co.uk" IPAddress="127.0.0.1"  Comment="This points to my local server." /> 
+    
+    <Message Text="SitePath: $(SitePath)"/>
+    
+    <ApplyAcls FolderPath="$(SitePath)" UserName="$(UserName)"/>
+      
+  </Target>
+  
+</Project>

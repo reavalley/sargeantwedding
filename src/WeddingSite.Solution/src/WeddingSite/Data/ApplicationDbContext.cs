@@ -35,9 +35,19 @@ namespace WeddingSite.Data
             modelBuilder.Entity<Comment>().HasOne(c => c.Item).WithMany(i => i.Comments);
             modelBuilder.Entity<Comment>().HasOne(c => c.Parent).WithMany(c => c.Children);
             modelBuilder.Entity<Comment>().HasMany(c => c.Children).WithOne(c => c.Parent);
+
+            modelBuilder.Entity<Rsvp>().ToTable("Rsvps");
+            modelBuilder.Entity<Rsvp>().Property(i => i.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Rsvp>().HasOne(i => i.User);
+            modelBuilder.Entity<Rsvp>().HasOne(i => i.MenuOption);
+
+            modelBuilder.Entity<MenuOption>().ToTable("MenuOptions");
+            modelBuilder.Entity<MenuOption>().Property(i => i.Id).ValueGeneratedOnAdd();
         }
 
         public DbSet<Item> Items { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<MenuOption> MenuOptions { get; set; }
+        public DbSet<Rsvp> Rsvps { get; set; }
     }
 }

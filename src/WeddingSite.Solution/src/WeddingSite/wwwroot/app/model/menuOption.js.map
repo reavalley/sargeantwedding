@@ -1,0 +1,1 @@
+{"version":3,"sources":["model/menuOption.ts"],"names":["MenuOption","Title","Description","this"],"mappings":"0IAAAA,WAAA,WACI,QAAAA,YACWC,MACAC,aADAC,KAAAF,MAAAA,MACAE,KAAAD,YAAAA,YAEf,MAAAF","file":"menuOption.js","sourcesContent":["export class MenuOption {\r\n    constructor(\r\n        public Title: string,\r\n        public Description: string\r\n    ) { }\r\n}"]}

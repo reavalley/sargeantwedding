@@ -268,6 +268,45 @@ namespace WeddingSite.Data.Migrations
                     b.ToTable("Items");
                 });
 
+            modelBuilder.Entity("WeddingSite.Data.MenuOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description")
+                        .IsRequired();
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MenuOptions");
+                });
+
+            modelBuilder.Entity("WeddingSite.Data.Rsvp", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Attending");
+
+                    b.Property<bool>("IsCamping");
+
+                    b.Property<int>("MenuOptionId");
+
+                    b.Property<string>("UserId")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MenuOptionId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Rsvps");
+                });
+
             modelBuilder.Entity("WeddingSite.Data.Users.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -407,6 +446,19 @@ namespace WeddingSite.Data.Migrations
                 {
                     b.HasOne("WeddingSite.Data.Users.ApplicationUser", "Author")
                         .WithMany("Items")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("WeddingSite.Data.Rsvp", b =>
+                {
+                    b.HasOne("WeddingSite.Data.MenuOption", "MenuOption")
+                        .WithMany()
+                        .HasForeignKey("MenuOptionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WeddingSite.Data.Users.ApplicationUser", "User")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

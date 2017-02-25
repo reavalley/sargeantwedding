@@ -32,8 +32,25 @@ namespace WeddingSite.Data
             if (await _dbContext.Users.CountAsync() == 0)
                 await CreateUsersAsync();
 
-            if (await _dbContext.Items.CountAsync() == 0)
-                CreateItems();
+            if (_dbContext.MenuOptions.Count() == 0)
+                CreateMenuOptions();
+        }
+
+        private void CreateMenuOptions()
+        {
+            _dbContext.MenuOptions.Add(new MenuOption
+            {
+                Title = "Option A",
+                Description = "Roast beef, yorkshire pudding, roast potatoes served with vegetables"
+            });
+
+            _dbContext.MenuOptions.Add(new MenuOption
+            {
+                Title = "Option B",
+                Description = "Breast of chicken stuffed with sundried tomatoes, pesto & mozzarella with honey & thyme sauce served with vegetables"
+            });
+
+            _dbContext.SaveChanges();
         }
 
         private void CreateItems()

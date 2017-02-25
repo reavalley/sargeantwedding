@@ -1,5 +1,6 @@
-System.register(["@angular/core", "@angular/router", "./auth.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "./auth.service"], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,10 +10,10 @@ System.register(["@angular/core", "@angular/router", "./auth.service"], function
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, auth_service_1, AppComponent;
+    var core_1, router_1, auth_service_1;
+    var AppComponent;
     return {
-        setters: [
+        setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -21,9 +22,8 @@ System.register(["@angular/core", "@angular/router", "./auth.service"], function
             },
             function (auth_service_1_1) {
                 auth_service_1 = auth_service_1_1;
-            }
-        ],
-        execute: function () {
+            }],
+        execute: function() {
             AppComponent = (function () {
                 function AppComponent(router, authService, zone) {
                     this.router = router;
@@ -38,7 +38,21 @@ System.register(["@angular/core", "@angular/router", "./auth.service"], function
                             });
                         };
                     }
+                    this.currentUserName = this.getUserName();
                 }
+                AppComponent.prototype.getUserName = function () {
+                    if (this.isLoggedIn()) {
+                        this.authService.get().subscribe(function (user) {
+                            if (user.IsSocialLogin) {
+                                return "Logout " + user.Email;
+                            }
+                            else {
+                                return "Logout" + user.UserName;
+                            }
+                        });
+                    }
+                    return "Logout";
+                };
                 AppComponent.prototype.isActive = function (data) {
                     return this.router.isActive(this.router.createUrlTree(data), true);
                 };
@@ -59,17 +73,17 @@ System.register(["@angular/core", "@angular/router", "./auth.service"], function
                     console.log("External Login successful! Provider: " + this.authService.getAuth().providerName);
                     this.router.navigate([""]);
                 };
+                AppComponent = __decorate([
+                    core_1.Component({
+                        moduleId: __moduleName,
+                        selector: "weddingsite",
+                        templateUrl: "app.component.html"
+                    }), 
+                    __metadata('design:paramtypes', [router_1.Router, auth_service_1.AuthService, core_1.NgZone])
+                ], AppComponent);
                 return AppComponent;
             }());
-            AppComponent = __decorate([
-                core_1.Component({
-                    moduleId: __moduleName,
-                    selector: "weddingsite",
-                    templateUrl: "app.component.html"
-                }),
-                __metadata("design:paramtypes", [router_1.Router, auth_service_1.AuthService, core_1.NgZone])
-            ], AppComponent);
             exports_1("AppComponent", AppComponent);
         }
-    };
+    }
 });

@@ -120,8 +120,6 @@ namespace WeddingSite
                 }
             });
             
-           
-
             app.UseIdentity();
 
             app.UseFacebookAuthentication(new FacebookOptions
@@ -176,7 +174,8 @@ namespace WeddingSite
 
             app.UseMvc();
             
-            TinyMapper.Bind<Item, ItemvViewModel>();
+            TinyMapper.Bind<Item, ItemViewModel>();
+            TinyMapper.Bind<MenuOption, MenuOptionViewModel>();
 
             try
             {

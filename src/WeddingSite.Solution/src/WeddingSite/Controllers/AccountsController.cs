@@ -21,6 +21,7 @@ namespace WeddingSite.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Get()
         {
             var id = await GetCurrentUserId();
@@ -99,8 +100,8 @@ namespace WeddingSite.Controllers
                     return new JsonResult(new {error = exception.Message});
                 }
             }
-
-            return new StatusCodeResult(500);
+            return Json(ModelState.Values.SelectMany(x => x.Errors));
+            //return new StatusCodeResult(500);
         }
 
         [HttpPut]
@@ -135,10 +136,10 @@ namespace WeddingSite.Controllers
                             hadChanges = true;
                         }
 
-                        if (!string.IsNullOrEmpty(userViewModel.PasswordNew))
+                        if (!string.IsNullOrEmpty(userViewModel.PasswordConfirm))
                         {
                             await UserManager.ChangePasswordAsync(user, userViewModel.Password,
-                                userViewModel.PasswordNew);
+                                userViewModel.PasswordConfirm);
                             hadChanges = true;
                         }
 

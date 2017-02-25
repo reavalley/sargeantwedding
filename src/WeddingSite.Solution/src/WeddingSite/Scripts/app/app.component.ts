@@ -1,6 +1,7 @@
 ﻿import {Component, NgZone} from "@angular/core";
 import {Router} from "@angular/router";
 import {AuthService} from "./auth.service";
+import {User} from "./model/user";
 
 @Component({
     moduleId: __moduleName,
@@ -9,7 +10,7 @@ import {AuthService} from "./auth.service";
 })
 export class AppComponent {
     title = "Ben and Hayley's Wedding";
-    userName: string;
+    currentUserName: string;
 
     constructor(public router: Router, public authService: AuthService, public zone: NgZone) {
         if (!(<any>window).externalProviderLogin) {
@@ -21,6 +22,7 @@ export class AppComponent {
                 });
             }
         }
+        this.currentUserName = this.getUserName();
     }
     
     getUserName(): string {
@@ -28,15 +30,15 @@ export class AppComponent {
             this.authService.get().subscribe(
                 user => {
                     if (user.IsSocialLogin) {
-                        return user.Email;
+                        return "Logout " + user.Email;
                     }
                     else {
-                        return user.UserName;
+                        return "Logout" + user.UserName;
                     }
                 }
             );
         }
-        return "";
+        return "Logout";
     }
 
     isActive(data: any[]): boolean {

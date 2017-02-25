@@ -2,7 +2,7 @@
   "_args": [
     [
       "@angular/upgrade@2.0.0-rc.5",
-      "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
+      "C:\\git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite"
     ]
   ],
   "_from": "@angular/upgrade@2.0.0-rc.5",
@@ -35,7 +35,7 @@
   "_shasum": "e089a009f728bbe22303b633c3028a6f06cc1ae3",
   "_shrinkwrap": null,
   "_spec": "@angular/upgrade@2.0.0-rc.5",
-  "_where": "C:\\rvs-git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
+  "_where": "C:\\git\\sargeantwedding\\src\\WeddingSite.Solution\\src\\WeddingSite",
   "author": {
     "name": "angular"
   },

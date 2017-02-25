@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 namespace WeddingSite.ViewModels
 {
     [JsonObject(MemberSerialization.OptOut)]
-    public class ItemvViewModel
+    public class ItemViewModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

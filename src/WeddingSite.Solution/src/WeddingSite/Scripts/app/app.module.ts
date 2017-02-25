@@ -22,6 +22,8 @@ import {MenuComponent} from "./content/menu.component";
 import {DirectionsComponent} from "./content/directions.component";
 import {AccommodationComponent} from "./content/accommodation.component";
 import {WeddingWishComponent} from "./content/wedding-wish.component";
+import {RsvpComponent} from "./rsvp.component";
+import {RsvpService} from "./rsvp.service";
 
 @NgModule({
     declarations: [
@@ -37,7 +39,8 @@ import {WeddingWishComponent} from "./content/wedding-wish.component";
         MenuComponent,
         DirectionsComponent,
         AccommodationComponent,
-        WeddingWishComponent
+        WeddingWishComponent,
+        RsvpComponent
     ],
     imports: [
         BrowserModule,
@@ -49,7 +52,8 @@ import {WeddingWishComponent} from "./content/wedding-wish.component";
     ],
     providers: [
         AuthHttp,
-        AuthService
+        AuthService,
+        RsvpService
     ],
     bootstrap: [AppComponent]
 })
