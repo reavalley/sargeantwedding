@@ -71,3 +71,4 @@ C:\rvs-git\sargeantwedding\src\BensWedding.Solution\BensWedding\obj\Release\Bens
 C:\rvs-git\sargeantwedding\src\BensWedding.Solution\BensWedding\obj\Release\BensWedding.csproj.GenerateResource.Cache
 C:\rvs-git\sargeantwedding\src\BensWedding.Solution\BensWedding\obj\Release\BensWedding.dll
 C:\rvs-git\sargeantwedding\src\BensWedding.Solution\BensWedding\obj\Release\BensWedding.pdb
+C:\rvs-git\sargeantwedding\src\BensWedding.Solution\BensWedding\obj\Release\BensWedding.csprojResolveAssemblyReference.cache

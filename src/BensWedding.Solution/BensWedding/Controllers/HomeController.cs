@@ -97,7 +97,7 @@ namespace BensWedding.Controllers
                         Attending = rsvp.Attending.Description,
                         DietaryRequirements = rsvp.DietaryRequirements,
                         IsCamping = rsvp.IsCamping,
-                        MenuOption = rsvp.MenuOption.Title,
+                        MenuOption = rsvp.MenuOption?.Title,
                         Name = rsvp.User.DisplayName
                     };
 
@@ -130,8 +130,9 @@ namespace BensWedding.Controllers
                 {
                     model.IsCamping = rsvp.IsCamping;
                     model.SelectedAttendingId = rsvp.Attending.Id;
-                    model.SelectedMenuOptionId = rsvp.MenuOption.Id;
+                    model.SelectedMenuOptionId = rsvp.MenuOption?.Id;
                     model.DietaryRequirements = rsvp.DietaryRequirements;
+                    model.ShowMenuOptions = rsvp.Attending?.Description == "Day";
                 }
                                
                 return View(model);

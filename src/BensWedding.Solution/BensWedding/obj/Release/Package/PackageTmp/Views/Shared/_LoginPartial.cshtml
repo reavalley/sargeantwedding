@@ -3,8 +3,7 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
-        @Html.AntiForgeryToken()
-        @Html.ActionLink("Rsvp", "Rsvp", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item" })
+        @Html.AntiForgeryToken()       
         @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "list-group-item" })
         <a href="javascript:document.getElementById('logoutForm').submit()" class="list-group-item">Log off</a>
     }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace BensWedding.Models
 {
@@ -14,7 +11,9 @@ namespace BensWedding.Models
 
         public string DietaryRequirements { get; set; }
 
-        public int SelectedMenuOptionId { get; set; }
+        public bool ShowMenuOptions { get; set; }
+
+        public int? SelectedMenuOptionId { get; set; }
 
         public List<MenuOption> MenuOptions { get; set; }
     }

@@ -346,10 +346,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/25/2017 09:31:42</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/25/2017 14:34:03</publishTime>
+      <publishTime>02/25/2017 15:20:47</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>02/25/2017 09:31:42</publishTime>
+      <publishTime>02/25/2017 15:20:08</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>02/25/2017 09:31:42</publishTime>

@@ -18,8 +18,7 @@ namespace BensWedding.Models
 
         [Required]
         public bool IsCamping { get; set; }
-
-        [Required]
+                
         public MenuOption MenuOption { get; set; }
 
         public string DietaryRequirements { get; set; }
