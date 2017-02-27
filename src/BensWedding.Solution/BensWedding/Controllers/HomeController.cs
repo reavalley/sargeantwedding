@@ -97,8 +97,8 @@ namespace BensWedding.Controllers
                         Attending = rsvp.Attending.Description,
                         DietaryRequirements = rsvp.DietaryRequirements,
                         IsCamping = rsvp.IsCamping,
-                        MenuOption = rsvp.MenuOption?.Title,
-                        Name = rsvp.User.DisplayName
+                        MenuOption = rsvp.MenuOption?.Description,
+                        Name = rsvp.Name
                     };
 
                     model.Add(vm);
@@ -109,7 +109,7 @@ namespace BensWedding.Controllers
         }
 
         [Authorize]
-        public ActionResult Rsvp()
+        public ActionResult Rsvp(int? id)
         {
             var userid = User.Identity.GetUserId();
 
@@ -121,20 +121,42 @@ namespace BensWedding.Controllers
                 var model = new RsvpViewModel
                 {
                     MenuOptions = options.ToList(),
-                    Attendings = attendings.ToList()
+                    Attendings = attendings.ToList(),
+                    Rsvps = new List<RsvpDisplayViewModel>()
                 };
 
-                var rsvp = dbContext.Rsvps.SingleOrDefault(x => x.UserId == userid);
+                var rsvps = dbContext.Rsvps
+                    .Where(x => x.UserId == userid)
+                    .Include(x => x.User)
+                    .Include(x => x.Attending)
+                    .Include(x => x.MenuOption)
+                    .ToList();
 
-                if(rsvp != null)
+                foreach(var rsvp in rsvps)
                 {
-                    model.IsCamping = rsvp.IsCamping;
-                    model.SelectedAttendingId = rsvp.Attending.Id;
-                    model.SelectedMenuOptionId = rsvp.MenuOption?.Id;
-                    model.DietaryRequirements = rsvp.DietaryRequirements;
-                    model.ShowMenuOptions = rsvp.Attending?.Description == "Day";
+                    var rsvpViewModel = new RsvpDisplayViewModel
+                    {
+                        Id = rsvp.Id,
+                        Attending = rsvp.Attending.Description,
+                        DietaryRequirements = rsvp.DietaryRequirements,
+                        IsCamping = rsvp.IsCamping,
+                        MenuOption = rsvp.MenuOption?.Description,
+                        Name = rsvp.Name
+                    };
+
+                    if(rsvp.Id == id)
+                    {
+                        model.IsCamping = rsvp.IsCamping;
+                        model.SelectedAttendingId = rsvp.Attending.Id;
+                        model.SelectedMenuOptionId = rsvp.MenuOption?.Id;
+                        model.DietaryRequirements = rsvp.DietaryRequirements;
+                        model.ShowMenuOptions = rsvp.Attending?.Description == "Day";
+                        model.Name = rsvp.Name;
+                    }
+
+                    model.Rsvps.Add(rsvpViewModel);
                 }
-                               
+                                               
                 return View(model);
             }
         }
@@ -152,9 +174,7 @@ namespace BensWedding.Controllers
 
                 var user = dbContext.Users.SingleOrDefault(x => x.Id == userid);
                 
-                if (attending == null || menuOption == null) return RedirectToAction("Index");
-
-                var rsvp = dbContext.Rsvps.SingleOrDefault(x => x.UserId == userid);
+                var rsvp = dbContext.Rsvps.SingleOrDefault(x => x.Id == rsvpViewModel.Id);
 
                 if (rsvp != null)
                 {
@@ -162,6 +182,7 @@ namespace BensWedding.Controllers
                     rsvp.DietaryRequirements = rsvpViewModel.DietaryRequirements;
                     rsvp.Attending = attending;
                     rsvp.MenuOption = menuOption;
+                    rsvp.Name = rsvpViewModel.Name;
                 }
                 else
                 {
@@ -171,14 +192,15 @@ namespace BensWedding.Controllers
                         MenuOption = menuOption,
                         IsCamping = rsvpViewModel.IsCamping,
                         DietaryRequirements = rsvpViewModel.DietaryRequirements,
-                        UserId = userid
-                    };
+                        UserId = userid,
+                        Name = rsvpViewModel.Name
+                };
 
                     dbContext.Rsvps.Add(rsvp);
                 }                  
                 dbContext.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Rsvp");
             }
         }
     }

@@ -35,7 +35,7 @@ namespace BensWedding.Migrations
                 new PartyMember { Title = "Bridesmaid", Name = "Amy Price", Description = "Hayley’s school friend since 11", ImageUrl = "~/Content/images/amy.jpeg", Order = 2 },
                 new PartyMember { Title = "Bridesmaid", Name = "Liv O'Toole", Description = "Hayley’s school friend since 11", ImageUrl = "~/Content/images/liv.jpeg", Order = 3 },
                 new PartyMember { Title = "Bridesmaid", Name = "Sarah Wicks", Description = "Ben's sister", ImageUrl = "~/Content/images/sarah.jpg", Order = 4 },
-                new PartyMember { Title = "Bridesmaid", Name = "Samantha Sargeant", Description = "Ben's sister", ImageUrl = "~/Content/images/sam.jpeg", Order = 5 },
+                new PartyMember { Title = "Bridesmaid", Name = "Sam Sargeant", Description = "Ben's sister", ImageUrl = "~/Content/images/sam.jpeg", Order = 5 },
                 new PartyMember { Title = "Best Man", Name = "Matthew Jones", Description = "Ben's friend", ImageUrl = "~/Content/images/matt.jpeg", Order = 6 },
                 new PartyMember { Title = "Groomsman", Name = "Tom Cowdale", Description = "Ben's cousin", ImageUrl = "~/Content/images/tom.jpeg", Order = 7 },
                 new PartyMember { Title = "Groomsman", Name = "Russ Wicks", Description = "Ben's brother in law", ImageUrl = "~/Content/images/russ.jpg", Order = 9 },
