@@ -25,7 +25,8 @@ namespace BensWedding.Migrations
             context.MenuOptions.AddOrUpdate(
                 m => m.Title,
                 new MenuOption { Title = "Option A", Description = "Roast beef, yorkshire pudding, roast potatoes served with vegetables" },
-                new MenuOption { Title = "Option B", Description = "Breast of chicken stuffed with sundried tomatoes, pesto & mozzarella with honey & thyme sauce served with vegetables" }
+                new MenuOption { Title = "Option B", Description = "Breast of chicken stuffed with sundried tomatoes, pesto & mozzarella with honey & thyme sauce served with vegetables" },
+                new MenuOption { Title = "Option C", Description = "Vegetarian option" }
             );
 
             context.PartyMembers.AddOrUpdate(

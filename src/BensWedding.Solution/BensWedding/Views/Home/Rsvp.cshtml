@@ -2,10 +2,62 @@
 
 @{ 
     var day = Model.Attendings.SingleOrDefault(x => x.Description == "Day");
-    var htmlAttributes = new { @class = "form-control attendingDropdown", @data_dayId = day.Id};    
+    var htmlAttributes = new { @class = "form-control attendingDropdown", @data_dayId = day.Id};
 }
 
 <h2>Rsvp</h2>
+
+@if (Model.Rsvps.Any())
+{
+    <div class="rsvp-table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Attending</th>
+                    <th>Menu Option</th>
+                    <th>Dietary Requirements</th>
+                    <th>Camping?</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rsvp in Model.Rsvps)
+                {
+                    <tr>
+                        <td>
+                            @using (Html.BeginForm("DeleteRsvp", "Home", new { id = rsvp.Id }, FormMethod.Post, new { role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <input type="image" src="@Url.Content("~/Content/images/delete.png")" />
+                            }
+                        </td>
+                        <td>@Html.ActionLink("Edit", "Rsvp", "Home", new { id = rsvp.Id }, null)</td>
+                        <td>@rsvp.Name</td>
+                        <td>@rsvp.Attending</td>
+                        <td>@rsvp.MenuOption</td>
+                        <td>@rsvp.DietaryRequirements</td>
+                        <td>
+                            @if (rsvp.IsCamping)
+                            {
+                                <span>Yes</span>
+                            }
+                            else
+                            {
+                                <span>No</span>
+                            }
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<p>Add an Rsvp for yourself or anyone in your party. Make sure you enter the full name of the person you are doing the Rsvp for.</p>
 
 @using (Html.BeginForm("SaveRsvp", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -60,44 +112,6 @@
         </div>
     </div>
 }
-
-<div class="rsvp-table">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Attending</th>
-                <th>Menu Option</th>
-                <th>Dietary Requirements</th>
-                <th>Camping?</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var rsvp in Model.Rsvps)
-            {
-                <tr>
-                    <td>@Html.ActionLink("Edit", "Rsvp", "Home", new { id = rsvp.Id }, null)</td>
-                    <td>@rsvp.Name</td>
-                    <td>@rsvp.Attending</td>
-                    <td>@rsvp.MenuOption</td>
-                    <td>@rsvp.DietaryRequirements</td>
-                    <td>
-                        @if (rsvp.IsCamping)
-                        {
-                            <span>Yes</span>
-                        }
-                        else
-                        {
-                            <span>No</span>
-                        }
-                    </td>
-
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -12,7 +12,7 @@ namespace BensWedding.Controllers
     public class HomeController : Controller
     {
         private ApplicationUserManager _userManager;
-        
+
         public ApplicationUserManager UserManager
         {
             get
@@ -55,7 +55,7 @@ namespace BensWedding.Controllers
                 {
                     BridalParty = partyMembers.ToList()
                 };
-                
+
                 return View(model);
             }
         }
@@ -90,7 +90,7 @@ namespace BensWedding.Controllers
                     .Include(x => x.Attending)
                     .Include(x => x.MenuOption);
 
-                foreach(var rsvp in rsvps)
+                foreach (var rsvp in rsvps)
                 {
                     var vm = new RsvpDisplayViewModel
                     {
@@ -132,7 +132,7 @@ namespace BensWedding.Controllers
                     .Include(x => x.MenuOption)
                     .ToList();
 
-                foreach(var rsvp in rsvps)
+                foreach (var rsvp in rsvps)
                 {
                     var rsvpViewModel = new RsvpDisplayViewModel
                     {
@@ -144,7 +144,7 @@ namespace BensWedding.Controllers
                         Name = rsvp.Name
                     };
 
-                    if(rsvp.Id == id)
+                    if (rsvp.Id == id)
                     {
                         model.IsCamping = rsvp.IsCamping;
                         model.SelectedAttendingId = rsvp.Attending.Id;
@@ -156,13 +156,14 @@ namespace BensWedding.Controllers
 
                     model.Rsvps.Add(rsvpViewModel);
                 }
-                                               
+
                 return View(model);
             }
         }
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SaveRsvp(RsvpViewModel rsvpViewModel)
         {
             var userid = User.Identity.GetUserId();
@@ -173,7 +174,7 @@ namespace BensWedding.Controllers
                 var menuOption = dbContext.MenuOptions.SingleOrDefault(x => x.Id == rsvpViewModel.SelectedMenuOptionId);
 
                 var user = dbContext.Users.SingleOrDefault(x => x.Id == userid);
-                
+
                 var rsvp = dbContext.Rsvps.SingleOrDefault(x => x.Id == rsvpViewModel.Id);
 
                 if (rsvp != null)
@@ -194,11 +195,30 @@ namespace BensWedding.Controllers
                         DietaryRequirements = rsvpViewModel.DietaryRequirements,
                         UserId = userid,
                         Name = rsvpViewModel.Name
-                };
+                    };
 
                     dbContext.Rsvps.Add(rsvp);
-                }                  
+                }
                 dbContext.SaveChanges();
+
+                return RedirectToAction("Rsvp");
+            }
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteRsvp(int id)
+        {
+            using (var dbContext = new ApplicationDbContext())
+            {
+                var rsvp = dbContext.Rsvps.SingleOrDefault(x => x.Id == id);
+
+                if (rsvp != null)
+                {
+                    dbContext.Rsvps.Remove(rsvp);
+                    dbContext.SaveChanges();
+                }              
 
                 return RedirectToAction("Rsvp");
             }
