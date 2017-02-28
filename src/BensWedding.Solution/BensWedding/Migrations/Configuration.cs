@@ -19,7 +19,8 @@ namespace BensWedding.Migrations
             context.AttendingWhen.AddOrUpdate(
                 a => a.Description,
                 new Attending { Description = "Day" },
-                new Attending { Description = "Evening" }
+                new Attending { Description = "Evening" },
+                new Attending { Description = "Unable to attend" }
             );            
         
             context.MenuOptions.AddOrUpdate(
