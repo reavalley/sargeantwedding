@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace BensWedding.Models
+﻿namespace BensWedding.Models
 {
     public class RsvpDisplayViewModel
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public string Attending { get; set; }

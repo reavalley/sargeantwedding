@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +208,8 @@
     <Content Include="Content\images\aimee.jpeg" />
     <Content Include="Content\images\amy.jpeg" />
     <Content Include="Content\images\background-no-horse-shoes.png" />
+    <Content Include="Content\images\callow.jpg" />
+    <Content Include="Content\images\delete.png" />
     <Content Include="Content\images\eiffel.jpg" />
     <Content Include="Content\images\gareth.jpeg" />
     <Content Include="Content\images\liv.jpeg" />
@@ -219,6 +222,7 @@
     <Content Include="Content\images\sam.jpeg" />
     <Content Include="Content\images\sarah.jpg" />
     <Content Include="Content\images\tom.jpeg" />
+    <Content Include="Content\images\worthen-church.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
