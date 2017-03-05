@@ -15,8 +15,6 @@ namespace BensWedding.Models
 
         public string DietaryRequirements { get; set; }
 
-        public string SongRequest { get; set; }
-
         public string MenuOption { get; set; }
     }
 }
