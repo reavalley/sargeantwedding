@@ -98,7 +98,8 @@ namespace BensWedding.Controllers
                         DietaryRequirements = rsvp.DietaryRequirements,
                         IsCamping = rsvp.IsCamping,
                         MenuOption = rsvp.MenuOption?.Title,
-                        Name = rsvp.User.DisplayName
+                        Name = rsvp.User.DisplayName,
+                        SongRequest = rsvp.SongRequest
                     };
 
                     model.Add(vm);
@@ -132,6 +133,7 @@ namespace BensWedding.Controllers
                     model.SelectedAttendingId = rsvp.Attending.Id;
                     model.SelectedMenuOptionId = rsvp.MenuOption?.Id;
                     model.DietaryRequirements = rsvp.DietaryRequirements;
+                    model.SongRequest = rsvp.SongRequest;
                     model.ShowMenuOptions = rsvp.Attending?.Description == "Day";
                 }
                                
@@ -160,6 +162,7 @@ namespace BensWedding.Controllers
                 {
                     rsvp.IsCamping = rsvpViewModel.IsCamping;
                     rsvp.DietaryRequirements = rsvpViewModel.DietaryRequirements;
+                    rsvp.SongRequest = rsvpViewModel.SongRequest;
                     rsvp.Attending = attending;
                     rsvp.MenuOption = menuOption;
                 }
@@ -171,6 +174,7 @@ namespace BensWedding.Controllers
                         MenuOption = menuOption,
                         IsCamping = rsvpViewModel.IsCamping,
                         DietaryRequirements = rsvpViewModel.DietaryRequirements,
+                        SongRequest = rsvpViewModel.SongRequest,
                         UserId = userid
                     };
 
