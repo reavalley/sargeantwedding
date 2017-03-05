@@ -8,3 +8,9 @@ src/WeddingSite.Solution/src/WeddingSite/bin/Debug/net461
 /src/WeddingSite.Solution/src/WeddingSite/bin/Release/net461
 /src/WeddingSite.Solution/src/WeddingSite/obj
 /src/WeddingSite.Solution/src/WeddingSite/wwwroot/js
+
+/src/BensWedding.Solution/.vs
+/src/BensWedding.Solution/BensWedding/bin
+/src/BensWedding.Solution/BensWedding/obj
+*.user
+

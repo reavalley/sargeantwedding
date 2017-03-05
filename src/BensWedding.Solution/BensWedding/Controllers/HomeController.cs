@@ -98,7 +98,8 @@ namespace BensWedding.Controllers
                         DietaryRequirements = rsvp.DietaryRequirements,
                         IsCamping = rsvp.IsCamping,
                         MenuOption = rsvp.MenuOption?.Description,
-                        Name = rsvp.Name
+                        Name = rsvp.Name,
+                        SongRequest = rsvp.SongRequest
                     };
 
                     model.Add(vm);
@@ -141,7 +142,8 @@ namespace BensWedding.Controllers
                         DietaryRequirements = rsvp.DietaryRequirements,
                         IsCamping = rsvp.IsCamping,
                         MenuOption = rsvp.MenuOption?.Description,
-                        Name = rsvp.Name
+                        Name = rsvp.Name,
+                        SongRequest = rsvp.SongRequest
                     };
 
                     if (rsvp.Id == id)
@@ -152,6 +154,7 @@ namespace BensWedding.Controllers
                         model.DietaryRequirements = rsvp.DietaryRequirements;
                         model.ShowMenuOptions = rsvp.Attending?.Description == "Day";
                         model.Name = rsvp.Name;
+                        model.SongRequest = rsvp.SongRequest;
                     }
 
                     model.Rsvps.Add(rsvpViewModel);
@@ -184,6 +187,7 @@ namespace BensWedding.Controllers
                     rsvp.Attending = attending;
                     rsvp.MenuOption = menuOption;
                     rsvp.Name = rsvpViewModel.Name;
+                    rsvp.SongRequest = rsvpViewModel.SongRequest;
                 }
                 else
                 {
@@ -194,7 +198,8 @@ namespace BensWedding.Controllers
                         IsCamping = rsvpViewModel.IsCamping,
                         DietaryRequirements = rsvpViewModel.DietaryRequirements,
                         UserId = userid,
-                        Name = rsvpViewModel.Name
+                        Name = rsvpViewModel.Name,
+                        SongRequest = rsvpViewModel.SongRequest
                     };
 
                     dbContext.Rsvps.Add(rsvp);

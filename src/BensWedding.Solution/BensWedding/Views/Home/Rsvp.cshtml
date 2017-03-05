@@ -19,6 +19,7 @@
                     <th>Attending</th>
                     <th>Menu Option</th>
                     <th>Dietary Requirements</th>
+                    <th>Song Requests</th>
                     <th>Camping?</th>
                 </tr>
             </thead>
@@ -39,6 +40,7 @@
                         <td>@rsvp.Attending</td>
                         <td>@rsvp.MenuOption</td>
                         <td>@rsvp.DietaryRequirements</td>
+                        <td>@rsvp.SongRequest</td>
                         <td>
                             @if (rsvp.IsCamping)
                             {
@@ -95,6 +97,15 @@
             @Html.ValidationMessageFor(model => model.DietaryRequirements)
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SongRequest, "Song Request", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.SongRequest, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SongRequest)
+        </div>
+    </div>
+
     <div class="form-group">
         @Html.LabelFor(model => model.IsCamping, "Are you Camping?", new { @class = "control-label col-md-2" })
         <div class="col-md-10">
